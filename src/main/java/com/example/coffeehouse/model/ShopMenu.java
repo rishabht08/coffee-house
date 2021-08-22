@@ -1,5 +1,6 @@
 package com.example.coffeehouse.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -18,6 +19,11 @@ public class ShopMenu {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
+    private String name;
+
+    @Column(length = 255)
+    private String itemImage;
+
     private String description;
     private int price;
 
@@ -28,7 +34,10 @@ public class ShopMenu {
     public ShopMenu() {
     }
 
-    public ShopMenu(String description, int price, Shop shop) {
+    public ShopMenu(String name , String itemImage , String description, int price, Shop shop) {
+        
+        this.name = name;
+        this.itemImage = itemImage;
         this.description = description;
         this.price = price;
         this.shop = shop;
@@ -40,6 +49,24 @@ public class ShopMenu {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getItemImage() {
+        return itemImage;
+    }
+
+    public void setItemImage(String itemImage) {
+        this.itemImage = itemImage;
     }
 
     public String getDescription() {
@@ -60,9 +87,8 @@ public class ShopMenu {
 
     @Override
     public String toString() {
-        return "ShopMenu [description=" + description + ", id=" + id + ", price=" + price + ", shop=" + shop + "]";
+        return "ShopMenu [description=" + description + ", id=" + id + ", itemImage=" + itemImage + ", name=" + name
+                + ", price=" + price + ", shop=" + shop + "]";
     }
-
-    
 
 }

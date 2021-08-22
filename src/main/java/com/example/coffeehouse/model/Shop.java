@@ -23,14 +23,18 @@ public class Shop {
     @Column(unique = true)
     private String name;
 
+    @Column(length = 255)
+    private String shopImage;
+
 
     @OneToMany(targetEntity= ShopMenu.class , mappedBy = "shop" ,fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<ShopMenu> menu = new ArrayList<>();
 
     public Shop() {}
 
-    public Shop(String name) {
+    public Shop(String name , String shopImage) {
         this.name = name;
+        this.shopImage = shopImage;
     }
 
     public int getId() {
@@ -49,7 +53,13 @@ public class Shop {
         this.name = name;
     }
 
-    
+    public String getShopImage() {
+        return shopImage;
+    }
+
+    public void setShopImage(String shopImage) {
+        this.shopImage = shopImage;
+    }
 
     public List<ShopMenu> getMenu() {
         return menu;
@@ -58,6 +68,8 @@ public class Shop {
     public void setMenu(List<ShopMenu> menu) {
         this.menu = menu;
     }
+
+
 
     @Override
     public String toString() {

@@ -13,6 +13,8 @@ public class MenuRequest {
 
     private int shopId;
 
+    private String name;
+    private String itemImage;
     private String description;
 
     private int price;
@@ -23,6 +25,24 @@ public class MenuRequest {
 
     public void setShopId(int shopId) {
         this.shopId = shopId;
+    }
+
+    
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getItemImage() {
+        return itemImage;
+    }
+
+    public void setItemImage(String itemImage) {
+        this.itemImage = itemImage;
     }
 
     public String getDescription() {
@@ -41,6 +61,5 @@ public class MenuRequest {
         this.price = price;
     }
 
-    
-    
+       
 }
